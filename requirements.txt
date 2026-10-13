@@ -1,0 +1,15 @@
+# Classical Cryptography Toolkit Requirements
+# -------------------------------------------------------------
+# This project is deliberately engineered with ZERO external dependencies!
+# It runs out-of-the-box using the Python 3 Standard Library (Python 3.8+).
+#
+# Standard Library modules utilized:
+# - tkinter & tkinter.ttk (GUI interface)
+# - secrets (Cryptographic entropy for OTP and monoalphabetic shuffle)
+# - math, time (time.perf_counter_ns for high-resolution benchmarking)
+# - json (Versioned envelope packaging)
+# - pathlib, os, re, sys, argparse
+# - unittest (Automated test discovery and runner)
+#
+# Optional test runner (if you prefer pytest over unittest):
+# pytest>=7.0.0

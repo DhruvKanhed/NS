@@ -1,0 +1,12 @@
+DEPARTMENT OF ELECTRONICS AND COMPUTER ENGINEERING (ECM)
+ACADEMIC YEAR 2026-2027
+SUBJECT: NETWORK SECURITY
+
+PROJECT TITLE: DESIGN AND DEVELOPMENT OF A CLASSICAL CRYPTOGRAPHY TOOLKIT
+
+This sample document demonstrates the encryption, integrity preservation, and decryption
+capabilities of the Classical Cryptography Toolkit.
+
+All eight supported ciphers (Caesar, Monoalphabetic, Playfair, Hill, Vigenère,
+One-Time Pad, Rail Fence, and Columnar Transposition) can process this document
+while preserving case, spaces, and punctuation where supported by the algorithm.

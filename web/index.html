@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Classical Cryptography Toolkit | Network Security Mini-Project</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app-layout">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-icon">🛡️</div>
+        <div>
+          <h2>CRYPTOTOOLKIT</h2>
+          <p>Network Security (ECM 2026–27)</p>
+        </div>
+      </div>
+
+      <nav class="nav-menu">
+        <button class="nav-item active" data-tab="dashboard">
+          <span class="icon">📊</span> Dashboard
+        </button>
+        <button class="nav-item" data-tab="ciphers">
+          <span class="icon">🔤</span> Cipher Workbench
+        </button>
+        <button class="nav-item" data-tab="comparison">
+          <span class="icon">⚡</span> Algorithm Comparison
+        </button>
+        <button class="nav-item" data-tab="files">
+          <span class="icon">📁</span> File Encrypt / Decrypt
+        </button>
+        <button class="nav-item" data-tab="help">
+          <span class="icon">📖</span> Help & Education
+        </button>
+        <button class="nav-item" data-tab="about">
+          <span class="icon">ℹ️</span> About Project
+        </button>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="badge-status">
+          <span class="dot"></span> Online Web Edition
+        </div>
+        <p class="desktop-hint">Desktop app available in repo (`main.py`)</p>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <!-- Top Header -->
+      <header class="top-header">
+        <div>
+          <h1 id="page-title">DASHBOARD OVERVIEW</h1>
+          <p class="subtitle" id="page-subtitle">Classical Cryptography Toolkit — Final Year (ECM) Mini-Project</p>
+        </div>
+        <div class="header-badges">
+          <span class="cyber-badge">8 Ciphers</span>
+          <span class="cyber-badge">Pure JS / Python</span>
+          <span class="cyber-badge highlight">v1.0 Envelope</span>
+        </div>
+      </header>
+
+      <!-- Section: Dashboard -->
+      <section id="section-dashboard" class="content-section active">
+        <div class="stats-ribbon">
+          <div class="stat-card">
+            <span class="stat-val">8 CIPHERS</span>
+            <span class="stat-label">6 Substitution + 2 Transposition</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-val">HIGH SPEED</span>
+            <span class="stat-label">Sub-millisecond transformations</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-val">JSON ENVELOPE</span>
+            <span class="stat-label">Versioned File Security Format</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-val">ZERO DEPS</span>
+            <span class="stat-label">Standard Library & Pure Algorithms</span>
+          </div>
+        </div>
+
+        <h3 class="section-heading">Available Classical Ciphers</h3>
+        <div class="cards-grid" id="dashboard-cards-grid">
+          <!-- Rendered via JavaScript -->
+        </div>
+      </section>
+
+      <!-- Section: Cipher Workbench -->
+      <section id="section-ciphers" class="content-section">
+        <div class="workbench-bar">
+          <div class="form-group inline">
+            <label for="workbench-cipher-select">Select Algorithm:</label>
+            <select id="workbench-cipher-select" class="cyber-select">
+              <optgroup label="Substitution Ciphers">
+                <option value="caesar">1. Caesar Cipher</option>
+                <option value="monoalphabetic">2. Monoalphabetic Substitution Cipher</option>
+                <option value="playfair">3. Playfair Cipher (5×5 Matrix)</option>
+                <option value="hill">4. Hill Cipher (2×2 Matrix)</option>
+                <option value="vigenere">5. Vigenère Cipher</option>
+                <option value="one_time_pad">6. One-Time Pad (Vernam)</option>
+              </optgroup>
+              <optgroup label="Transposition Ciphers">
+                <option value="rail_fence">7. Rail Fence Cipher (Zigzag)</option>
+                <option value="columnar_transposition">8. Columnar Transposition</option>
+              </optgroup>
+            </select>
+          </div>
+          <div id="cipher-desc-badge" class="desc-badge"></div>
+        </div>
+
+        <div class="workbench-grid">
+          <!-- Left: Input / Key / Output -->
+          <div class="workbench-left">
+            <div class="cyber-panel">
+              <div class="panel-header">
+                <span>Secret / Shift Key</span>
+                <span id="key-hint" class="hint-text"></span>
+              </div>
+              <div class="key-input-row">
+                <input type="text" id="cipher-key-input" class="cyber-input mono" placeholder="Enter key...">
+                <button id="btn-gen-key" class="btn btn-secondary">Generate Key</button>
+              </div>
+            </div>
+
+            <div class="cyber-panel">
+              <div class="panel-header">
+                <span>Input Text</span>
+                <span id="input-char-count" class="hint-text">0 characters</span>
+              </div>
+              <textarea id="cipher-text-input" class="cyber-textarea mono" rows="4" placeholder="Enter text to encrypt or decrypt..."></textarea>
+              
+              <div class="actions-row">
+                <button id="btn-encrypt" class="btn btn-primary">🔒 Encrypt</button>
+                <button id="btn-decrypt" class="btn btn-blue">🔓 Decrypt</button>
+                <button id="btn-swap" class="btn btn-secondary">⇄ Swap</button>
+                <button id="btn-clear" class="btn btn-secondary">Clear</button>
+                <span id="timing-badge" class="timing-badge">Time: --</span>
+              </div>
+            </div>
+
+            <div class="cyber-panel">
+              <div class="panel-header">
+                <span>Result / Output Text</span>
+                <span id="output-char-count" class="hint-text">0 characters</span>
+              </div>
+              <textarea id="cipher-text-output" class="cyber-textarea mono" rows="4" readonly placeholder="Output will appear here..."></textarea>
+              <div class="actions-row">
+                <button id="btn-copy-output" class="btn btn-secondary">📋 Copy Output</button>
+                <span id="status-msg" class="status-msg">Ready</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Visual Transformations & Artifacts -->
+          <div class="workbench-right">
+            <div class="cyber-panel full-height">
+              <div class="panel-header">
+                <span>ALGORITHM ARTIFACTS & DETAILS</span>
+              </div>
+              <pre id="visual-artifacts-panel" class="artifacts-box mono">Execute encryption or decryption to inspect matrix transformations, grids, and notes.</pre>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section: Algorithm Comparison -->
+      <section id="section-comparison" class="content-section">
+        <div class="cyber-panel">
+          <div class="panel-header">
+            <span>High-Resolution Benchmark Engine</span>
+          </div>
+          <div class="benchmark-controls">
+            <input type="text" id="benchmark-message" class="cyber-input mono" value="NETWORK SECURITY FINAL YEAR ECM 2026">
+            <button id="btn-run-benchmark" class="btn btn-primary">⚡ Run Benchmark</button>
+          </div>
+        </div>
+
+        <div class="table-container cyber-panel">
+          <table class="cyber-table" id="comparison-table">
+            <thead>
+              <tr>
+                <th>Algorithm</th>
+                <th>Category</th>
+                <th>Key Used</th>
+                <th>Enc Time</th>
+                <th>Dec Time</th>
+                <th>Roundtrip</th>
+                <th>Ciphertext Sample</th>
+              </tr>
+            </thead>
+            <tbody id="comparison-tbody">
+              <!-- Populated via JavaScript -->
+            </tbody>
+          </table>
+        </div>
+
+        <div class="cyber-panel" id="comparison-details-card">
+          <div class="panel-header">
+            <span>CRYPTANALYSIS & MATHEMATICAL LIMITATIONS</span>
+          </div>
+          <div id="comparison-selected-details" class="details-body">
+            Select any cipher row above to view its cryptanalytic weaknesses and historical attack vectors.
+          </div>
+        </div>
+      </section>
+
+      <!-- Section: File Operations -->
+      <section id="section-files" class="content-section">
+        <div class="files-tabs">
+          <button class="file-tab-btn active" data-file-tab="file-enc">🔒 Encrypt Text File</button>
+          <button class="file-tab-btn" data-file-tab="file-dec">🔓 Decrypt Enveloped File</button>
+        </div>
+
+        <div id="file-enc-panel" class="cyber-panel file-panel active">
+          <h3>1. Choose Plaintext File (.txt)</h3>
+          <input type="file" id="file-enc-input" class="cyber-file" accept=".txt">
+
+          <h3>2. Select Cipher & Enter Key</h3>
+          <div class="key-input-row">
+            <select id="file-enc-cipher" class="cyber-select">
+              <option value="caesar">Caesar Cipher</option>
+              <option value="monoalphabetic">Monoalphabetic Cipher</option>
+              <option value="playfair">Playfair Cipher</option>
+              <option value="hill">Hill Cipher (2×2)</option>
+              <option value="vigenere">Vigenère Cipher</option>
+              <option value="one_time_pad">One-Time Pad</option>
+              <option value="rail_fence">Rail Fence Cipher</option>
+              <option value="columnar_transposition">Columnar Transposition</option>
+            </select>
+            <input type="text" id="file-enc-key" class="cyber-input mono" placeholder="Key (e.g. 5)" value="5">
+          </div>
+
+          <div style="margin-top: 16px;">
+            <button id="btn-execute-file-enc" class="btn btn-primary">🔒 Encrypt & Download Envelope (.enc.txt)</button>
+          </div>
+          <pre id="file-enc-log" class="artifacts-box mono" style="margin-top: 14px; min-height: 80px;">Ready for file encryption.</pre>
+        </div>
+
+        <div id="file-dec-panel" class="cyber-panel file-panel">
+          <h3>1. Select Encrypted File Envelope (.enc.txt or JSON)</h3>
+          <input type="file" id="file-dec-input" class="cyber-file" accept=".txt,.json,.enc">
+
+          <h3>2. Enter Secret Key (Keys are NOT stored inside envelope)</h3>
+          <input type="text" id="file-dec-key" class="cyber-input mono" placeholder="Enter key...">
+
+          <div style="margin-top: 16px;">
+            <button id="btn-execute-file-dec" class="btn btn-blue">🔓 Decrypt & Download Plaintext</button>
+          </div>
+          <pre id="file-dec-log" class="artifacts-box mono" style="margin-top: 14px; min-height: 80px;">Ready for file decryption.</pre>
+        </div>
+      </section>
+
+      <!-- Section: Help & Education -->
+      <section id="section-help" class="content-section">
+        <div class="help-layout">
+          <div class="help-sidebar cyber-panel">
+            <h4 style="color: var(--accent-cyan); margin-bottom: 10px;">TOPICS</h4>
+            <ul class="help-topic-list" id="help-topics-list">
+              <!-- Rendered via JS -->
+            </ul>
+          </div>
+          <div class="help-body cyber-panel">
+            <div id="help-content-display" class="markdown-preview"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section: About Project -->
+      <section id="section-about" class="content-section">
+        <div class="cyber-panel">
+          <h2 style="color: var(--accent-cyan); margin-bottom: 8px;">ABOUT THE PROJECT</h2>
+          <p style="color: var(--text-secondary); margin-bottom: 20px;">Final Year Mini-Project Submission | Academic Year 2026–27</p>
+
+          <table class="meta-table">
+            <tr><th>Project Title:</th><td>Design and Development of a Classical Cryptography Toolkit</td></tr>
+            <tr><th>Degree / Course:</th><td>Final Year B.Tech / B.E. in Electronics & Computer Engineering (ECM)</td></tr>
+            <tr><th>Academic Year:</th><td>2026–2027</td></tr>
+            <tr><th>Subject:</th><td>Network Security</td></tr>
+            <tr><th>Student Name:</th><td><code>[STUDENT_NAME_PLACEHOLDER]</code></td></tr>
+            <tr><th>Roll Number:</th><td><code>[ROLL_NUMBER_PLACEHOLDER]</code></td></tr>
+            <tr><th>Batch:</th><td><code>[BATCH_ID_PLACEHOLDER]</code></td></tr>
+            <tr><th>Faculty Guide:</th><td><code>[FACULTY_GUIDE_NAME_PLACEHOLDER]</code></td></tr>
+            <tr><th>Institution:</th><td><code>[COLLEGE_OR_INSTITUTE_NAME_PLACEHOLDER]</code></td></tr>
+            <tr><th>Desktop Engine:</th><td>Python 3 Standard Library + Tkinter GUI (`main.py`)</td></tr>
+            <tr><th>Web Engine:</th><td>HTML5, Vanilla CSS, Web Crypto API (Client-side zero-latency)</td></tr>
+          </table>
+
+          <div class="security-advisory">
+            <h4>EDUCATIONAL USE ONLY</h4>
+            <p>Classical ciphers are strictly for pedagogical exploration and historical analysis in Network Security coursework. They are vulnerable to frequency analysis, Kasiski tests, and known-plaintext attacks. Never use these algorithms to protect sensitive real-world confidential information.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+{
+  "format": "CLASSICAL_CRYPTO_ENVELOPE_V1",
+  "version": "1.0",
+  "created_at_utc": "2026-10-13T06:07:07.235333+00:00",
+  "algorithm": "caesar",
+  "original_filename": "sample_plaintext.txt",
+  "encoding": "utf-8",
+  "parameters": {
+    "category": "Substitution",
+    "original_char_count": 565
+  },
+  "security_notice": "Educational classical cryptography envelope. Key is NOT stored.",
+  "ciphertext": "IJUFWYRJSY TK JQJHYWTSNHX FSI HTRUZYJW JSLNSJJWNSL (JHR)\nFHFIJRNH DJFW 2026-2027\nXZGOJHY: SJYBTWP XJHZWNYD\n\nUWTOJHY YNYQJ: IJXNLS FSI IJAJQTURJSY TK F HQFXXNHFQ HWDUYTLWFUMD YTTQPNY\n\nYmnx xfruqj ithzrjsy ijrtsxywfyjx ymj jshwduynts, nsyjlwnyd uwjxjwafynts, fsi ijhwduynts\nhfufgnqnynjx tk ymj Hqfxxnhfq Hwduytlwfumd Yttqpny.\n\nFqq jnlmy xzuutwyji hnumjwx (Hfjxfw, Rtstfqumfgjynh, Uqfdkfnw, Mnqq, Anljsèwj,\nTsj-Ynrj Ufi, Wfnq Kjshj, fsi Htqzrsfw Ywfsxutxnynts) hfs uwthjxx ymnx ithzrjsy\nbmnqj uwjxjwansl hfxj, xufhjx, fsi uzshyzfynts bmjwj xzuutwyji gd ymj fqltwnymr.\n"
+}
